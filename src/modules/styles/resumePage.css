@@ -1,0 +1,36 @@
+.panel {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Page {
+  width: 90%;
+}
+
+#HeadSpan {
+  height: 4px;
+  width: 95%;
+}
+
+.panel span {
+  width: 90%;
+  background-color: black;
+  height: 3px;
+}
+
+.undernames {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.eduPanel, .expPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border-top: 2px solid black;
+  border-radius: 5px;
+  width: 95%;
+}

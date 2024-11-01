@@ -1,0 +1,20 @@
+.paired {
+  display: flex;
+}
+
+.inputDiv {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+/* Phone extension */
+
+#phoneExt {
+  width: 60px;
+}
+
+/* Grade Scale */
+
+#gradeType {
+  width: 60px;
+}
