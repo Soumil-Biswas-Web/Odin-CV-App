@@ -1,3 +1,7 @@
+p {
+  margin: .3em;
+}
+
 .panel {
   background-color: white;
   width: 100%;
@@ -8,6 +12,8 @@
 
 .Page {
   width: 90%;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
 }
 
 #HeadSpan {
@@ -19,6 +25,11 @@
   width: 90%;
   background-color: black;
   height: 3px;
+}
+
+h1 {
+  font-size: larger;
+  font-weight: 600;
 }
 
 .undernames {

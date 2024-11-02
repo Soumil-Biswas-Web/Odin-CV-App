@@ -59,8 +59,8 @@ export default function App() {
       {
         compName: expData.get("company"),
         compPos: expData.get("post"),
-        dateStart: eduData.get("startDate"),
-        dateEnd: eduData.get("endDate"),
+        dateStart: expData.get("startDate"),
+        dateEnd: expData.get("endDate"),
         point: expData.get("details"),
         skills: getLoopEntries("#exp_form", "skill"),
       },

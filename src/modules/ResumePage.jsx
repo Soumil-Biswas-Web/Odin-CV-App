@@ -18,17 +18,18 @@ export function getLoopEntries(formName = String, typeName = String) {
 }
 
 export function ResumePage({
-  name = String,
-  address = String,
-  email = String,
-  phone = String,
+  name = "",
+  address = "",
+  email = "",
+  phone = "",
   languages = [],
   links = [],
 }) {
+  let underpage = (phone || address || email != "") ? (phone + " | " + address + " | " + email) : " ";
   return (
     <div className="resumePage">
-      <p>{name}</p>
-      <p>{phone + " | " + address + " | " + email}</p>
+      <h1>{name}</h1>
+      <p>{underpage}</p>
       <div className="undernames">      
       </div>
 
@@ -71,7 +72,7 @@ export function ExpPanel({
 }) {
   return (
     <div className="expPanel" key={key}>
-      <p>{compPose + " - " + compName}</p>
+      <p>{compPos + " - " + compName}</p>
       <p>{dateStart + " - " + dateEnd}</p>
       <p>{point}</p>
       {skills.map((skill, index) => {
