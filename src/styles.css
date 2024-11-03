@@ -4,10 +4,10 @@
   font-weight: 600;
 }
 
-#root {
+/* #root {
   background-color: rgb(10, 10, 10);
   height: 100vh;
-}
+} */
 
 body {
   margin: 0;
@@ -16,8 +16,30 @@ body {
 .App {
   font-family: sans-serif;
   text-align: center;
-  background-color: rgb(10, 10, 10);
+  background-color: rgb(30, 30, 30);
+}
+
+.content {
   display: flex;
+}
+
+.header {
+  padding: .8em;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  background-color: rgb(25, 25, 25);;
+}
+
+.header img {
+  height: 40px;
+  margin: 0 20px;
+}
+
+#headerText {
+  color: white;
+  font-size: 40px;
+  margin: 0;
 }
 
 .Forms {
