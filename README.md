@@ -2,6 +2,10 @@
 
 A CV Creator APP created for practicing forms in React.js.
 
+## Stack
+
+[![My Skills](https://skillicons.dev/icons?i=html,css,javascript,react,vite)](https://skillicons.dev)
+
 ## Getting Started
 
 Fork this repository [by following this guide.](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
