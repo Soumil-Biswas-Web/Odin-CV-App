@@ -10,15 +10,23 @@ import {
   getLoopEntries,
 } from "./modules/ResumePage.jsx";
 import { useState } from "react";
+import { validateData } from "./modules/yupValidation.js";
 
 export default function App() {
   const [genInfo, setGenInfo] = useState({});
 
-  function saveGenInfo(e) {
+  async function saveGenInfo(e) {
     e.preventDefault();
     const form = document.querySelector("#gen_form");
     const genData = new FormData(form);
     // console.log(genData.get("first_name"));
+
+    let result = await validateData({
+      phoneExt: genData.get('phoneExt'),
+      phoneNo: genData.get('phoneNo'),      
+    })
+    if(!result) return;
+
     setGenInfo({
       name: genData.get("first_name") + " " + genData.get("last_name"),
       address: genData.get("address"),
@@ -31,17 +39,23 @@ export default function App() {
 
   const [eduInfo, setEduInfo] = useState([]);
 
-  function saveEduInfo(e) {
+  async function saveEduInfo(e) {
     e.preventDefault();
     const form = document.querySelector("#edu_form");
     const eduData = new FormData(form);
+
+    let result = await validateData({
+      endDate: eduData.get("endDate"),
+    })
+    if(!result) return;
+
     setEduInfo((t) => [
       ...t,
       {
         lvl: eduData.get("eduLvl"),
         inst: eduData.get("edu_inst"),
         dateStart: eduData.get("startDate"),
-        dateEnd: eduData.get("endDate"),
+        dateEnd: (eduData.get("endDate") == "" ? "Present" : eduData.get("endDate")),
         gradeType: eduData.get("gradeType"),
         grade: eduData.get("grade"),
       },
@@ -60,7 +74,7 @@ export default function App() {
         compName: expData.get("company"),
         compPos: expData.get("post"),
         dateStart: expData.get("startDate"),
-        dateEnd: expData.get("endDate"),
+        dateEnd: (eduData.get("endDate") == "" ? "Present" : eduData.get("endDate")),
         point: expData.get("details"),
         skills: getLoopEntries("#exp_form", "skill"),
       },
@@ -98,8 +112,7 @@ export default function App() {
               languages={genInfo.languages}
               links={genInfo.links}
             />
-            {eduInfo.map((edu, index) => {
-              return (
+            {eduInfo.map((edu, index) => (
                 <EduPanel
                   lvl={edu.lvl}
                   inst={edu.inst}
@@ -108,11 +121,9 @@ export default function App() {
                   gradeType={edu.gradeType}
                   grade={edu.grade}
                   key={index}
-                />
-              );
-            })}
-            {expInfo.map((exp, index) => {
-              return (
+                />              
+            ))}
+            {expInfo.map((exp, index) => (
                 <ExpPanel
                   compName={exp.compName}
                   compPos={exp.compPos}
@@ -122,8 +133,7 @@ export default function App() {
                   skils={exp.skills}
                   key={index}
                 />
-              );
-            })}
+            ))}
           </div>
         </div>
       </div>

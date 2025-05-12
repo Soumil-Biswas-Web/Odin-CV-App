@@ -1,6 +1,5 @@
 import "../styles.css";
 import "./styles/resumePage.css";
-import { useState } from "react";
 
 export function getLoopEntries(formName = String, typeName = String) {
   // console.log(formName + typeName);
@@ -13,7 +12,7 @@ export function getLoopEntries(formName = String, typeName = String) {
     result.push(value);
     index++;
   }
-  console.log(result);
+  // console.log(result);
   return result;
 }
 
@@ -25,7 +24,10 @@ export function ResumePage({
   languages = [],
   links = [],
 }) {
-  let underpage = (phone || address || email != "") ? (phone + " | " + address + " | " + email) : " ";
+let contactItems = [phone, address, email].filter(item => item && item.trim() !== "");
+let underpage = contactItems.join(" | ");
+
+console.log(languages);
   return (
     <div className="resumePage">
       <h1>{name}</h1>
@@ -50,10 +52,10 @@ export function EduPanel({
   dateEnd,
   gradeType,
   grade = String,
-  key = Number,
+  
 }) {
   return (
-    <div className="eduPanel" key={key}>
+    <div className="eduPanel">
       <p>{inst + " -  " + lvl}</p>
       <p>{dateStart + " - " + dateEnd}</p>
       <p>{gradeType + " - " + grade}</p>
@@ -68,10 +70,10 @@ export function ExpPanel({
   dateEnd,
   point = String,
   skills = [],
-  key = Number,
+  
 }) {
   return (
-    <div className="expPanel" key={key}>
+    <div className="expPanel">
       <p>{compPos + " - " + compName}</p>
       <p>{dateStart + " - " + dateEnd}</p>
       <p>{point}</p>

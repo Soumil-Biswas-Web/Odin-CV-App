@@ -17,10 +17,12 @@ body {
   font-family: sans-serif;
   text-align: center;
   background-color: rgb(30, 30, 30);
+  min-height: 100vh;
 }
 
 .content {
   display: flex;
+  min-height: 90vh;
 }
 
 .header {
@@ -28,7 +30,7 @@ body {
   text-align: left;
   display: flex;
   align-items: center;
-  background-color: rgb(25, 25, 25);;
+  background-color: rgb(25, 25, 25);
 }
 
 .header img {

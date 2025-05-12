@@ -19,10 +19,9 @@ export function AddTextInput({
   name = String,
   label = String,
   placeholder = String,
-  inputKey = String,
 }) {
   const result = (
-    <div key={inputKey} className="inputDiv">
+    <div className="inputDiv">
       <label htmlFor={name}>{label}</label>
       <input type="text" id={name} name={name} placeholder={placeholder} />
     </div>
@@ -34,11 +33,10 @@ export function AddDropDownMenu({
   name = String,
   label = String,
   placeholder = String,
-  inputKey = String,
   options = [String],
 }) {
   const result = (
-    <div key={inputKey} className="inputDiv">
+    <div className="inputDiv">
       <label htmlFor={name}>{label}</label>
       <input
         list={name + "options"}
@@ -60,13 +58,11 @@ export function AddDropDownMenu({
 export function AddDateInput({
   name = String,
   label = String,
-  // placeholder = String,
-  inputKey = String,
 }) {
   const result = (
-    <div key={inputKey} className="inputDiv">
+    <div className="inputDiv">
       <label htmlFor={name}>{label}</label>
-      <input type="Date" id={name} name={name} /*placeholder={placeholder}*/ />
+      <input type="Date" id={name} name={name}/>
     </div>
   );
   return <div>{result}</div>;
@@ -76,10 +72,9 @@ export function AddNumberInput({
   name = String,
   label = String,
   placeholder = String,
-  inputKey = String,
 }) {
   const result = (
-    <div key={inputKey} className="inputDiv">
+    <div className="inputDiv">
       <label htmlFor={name}>{label}</label>
       <input type="number" id={name} name={name} placeholder={placeholder} />
     </div>
@@ -91,15 +86,12 @@ export function AddEmailInput({
   name = String,
   label = String,
   placeholder = String,
-  inputKey = String,
 }) {
   const result = (
-    <div key={inputKey} className="inputDiv">
+    <div className="inputDiv">
       <label htmlFor={name}>{label}</label>
       <input type="email" id={name} name={name} placeholder={placeholder} />
     </div>
   );
   return <div>{result}</div>;
 }
-
-// export { AddTextInput, AddTextInputArray, AddDropDownMenu };
